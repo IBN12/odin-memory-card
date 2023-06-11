@@ -1,14 +1,11 @@
-/* |Loading Section| */
-/* loading-component-container - The loading component container. */
-.loading-component-container{
-    border: 1px solid blue;
-    width: 800px;
-    margin: 300px auto;
-    text-align: center;
-    font-size: 50px;
-    letter-spacing: 4px;
+/* body - The main body of the application. */
+body{
+    background: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+    height: 100vh;
 }
 
+/******************************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************************/
 /* |Main Menu Section| */
 /* main-menu-component-container - The main menu component container. */
 .main-menu-component-container{
@@ -17,7 +14,33 @@
     margin: 300px auto;
     text-align: center;
 }
+#display-background-image{ /* Will display a background image for "Play Game" Main Menu. */
+    background-image: url("../images/background-1.png"); /* TODO: Shrink in media selector for mobile and tablet devices. */
+    background-repeat:no-repeat;
+    background-position: center; 
+    padding: 400px;
+}
+.main-menu-component-container > div > button{ /* The Main Menu Buttons. */
+    padding: 10px 5px 10px 5px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+.main-menu-component-container > div > button:hover{
+    cursor: pointer;
+}
 
+/* Main Menu (Play Again) */
+#play-again-screen{
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+
+    border: 1px solid green;
+}
+/******************************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************************/
 /* |Play Game Section| */
 /* play-game-component-container - The play game component container. */
 .play-game-component-container{
@@ -39,11 +62,11 @@
 }
 
 .play-game-component-container > div:nth-child(2){ /* Game Cards */
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(4, 200px);
-    grid-template-rows: repeat(1, 200px);
+    grid-template-rows: repeat(3, 200px);
     gap: 10px; 
-    justify-content: center;
+    justify-content: center; */
     
     border: 1px solid green;
 }
@@ -66,7 +89,7 @@
 /* |Game Result Section| */
 /* result-lose-component-container - The result lose container. */
 .result-lose-component-container{
-    border: 1px solid blue;
+    border: 1px solid orange;
     width: 800px;
     margin: 300px auto;
     font-size: 30px;
@@ -74,10 +97,15 @@
     text-align: center;
 }
 
+
 /*****************************************************************************************************************************************************************************/
 /*****************************************************************************************************************************************************************************/
 /* |Hide Screen Section| */
 /* hide-screen - Hide screen class. */
 .hide-screen{
+    display: none;
+}
+
+#hide-screen-now{
     display: none;
 }

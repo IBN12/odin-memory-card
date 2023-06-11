@@ -23,8 +23,11 @@ export function changeLevel(e, inGameCards, level, setLevel, setPlayGame, setGam
 
                 // Set the all the clicked cards back to false.
                 inGameCards.forEach((obj) => {
-                    obj.clicked = true;
+                    obj.clicked = false;
                 });
+                
+                // Set the count mod back to 0.
+                countMod.trueCount = 0;
             }
             else
             {
@@ -39,8 +42,14 @@ export function changeLevel(e, inGameCards, level, setLevel, setPlayGame, setGam
     if (countMod.trueCount === inGameCards.length)
     {
         setLevel(level + 1);
-        countMod.trueCount = 0;
 
+        // Set the count mod back to 0.
+        countMod.trueCount = 0;
+        
+        // set all the clicked cards back to false.
+        inGameCards.forEach((obj) => {
+            obj.clicked = false;
+        });
     }
 }
 
