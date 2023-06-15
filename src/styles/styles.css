@@ -6,12 +6,21 @@ body{
 
 /******************************************************************************************************************************************************************************/
 /******************************************************************************************************************************************************************************/
+/* |Fonts| */
+/* font-1 - Comic Story */
+@font-face {
+    font-family: comic-story;
+    src: url(../fonts/comic_story/Comic\ Story.ttf);
+}
+
+/******************************************************************************************************************************************************************************/
+/******************************************************************************************************************************************************************************/
 /* |Main Menu Section| */
 /* main-menu-component-container - The main menu component container. */
 .main-menu-component-container{
     border: 1px solid blue;
     width: 800px;
-    margin: 300px auto;
+    margin: 50px auto;
     text-align: center;
 }
 #display-background-image{ /* Will display a background image for "Play Game" Main Menu. */
@@ -20,18 +29,7 @@ body{
     background-position: center; 
     padding: 400px;
 }
-.main-menu-component-container > div > button{ /* The Main Menu Buttons. */
-    padding: 10px 5px 10px 5px;
-    font-size: 18px;
-    border-radius: 10px;
-    border: 1px solid black;
-}
-.main-menu-component-container > div > button:hover{
-    cursor: pointer;
-}
-
-/* Main Menu (Play Again) */
-#play-again-screen{
+.main-menu-component-container > div{ /* Menu Item Container */
     display: flex;
     flex-direction: column;
     gap: 4px;
@@ -39,20 +37,62 @@ body{
 
     border: 1px solid green;
 }
+.main-menu-component-container > div > button{ /* The Menu Buttons. */
+    padding: 10px 5px 10px 5px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: 1px solid  #f59f0b94;
+    font-family: comic-story, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background-color: #f59f0b94;
+    color: #111827;
+    letter-spacing: 3px;
+}
+.main-menu-component-container > div > button:hover{
+    cursor: pointer;
+    background-color: #f59e0b;
+    border: 1px solid #f59e0b;
+}
+.main-menu-component-container > div > button:focus{
+    background-color: #f59e0b;
+    border: 1px solid #f59e0b;
+    outline: none;
+}
+
+.blur{ /* blur the background */
+    filter:blur(7px);
+}
+
+/* Main Menu Title */
+/* .main-menu-component-container > h1{
+    position: absolute;
+    top: 70px;
+    left: 500px;
+    font-family: comic-story, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 50px;
+    letter-spacing: 3px;
+    color: #111827;
+} */
+
 /******************************************************************************************************************************************************************************/
 /******************************************************************************************************************************************************************************/
 /* |Play Game Section| */
 /* play-game-component-container - The play game component container. */
 .play-game-component-container{
-    width: 1000px;
+    width: 1200px;
     padding: 10px;
-    margin: 300px auto;
+    margin: 100px auto;
     border: 1px solid red;
+    border-radius: 10px;
+    font-family: comic-story, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 .play-game-component-container > div:nth-child(1){ /* Score and level */
     display: flex;
+    gap: 5px;
 
     border: 1px solid orange;
+    font-size: 25px;
+    font-weight: bold;
+    color: #111827;
 }
 .play-game-component-container > div:nth-child(1) > div{
     border: 1px solid purple;
@@ -61,21 +101,25 @@ body{
     flex-grow:1;
 }
 
-.play-game-component-container > div:nth-child(2){ /* Game Cards */
-    /* display: grid;
+.play-game-component-container > div:nth-child(2){ /* Game Cards Container */
+    /* 
+    This portion will be in a style attribute.
+    display: grid;
     grid-template-columns: repeat(4, 200px);
     grid-template-rows: repeat(3, 200px);
     gap: 10px; 
     justify-content: center; */
     
     border: 1px solid green;
+    padding: 25px;
+    margin: 10px;
 }
-.play-game-component-container > div:nth-child(2) > button{
-    border: 1px solid #fbbf24;
-    border-radius: 10px;
-    background-color: #fbbf24;
+.play-game-component-container > div:nth-child(2) > button{ /* Game Cards */
+    font-family: comic-story, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 15px;
+    color: #111827;
 }
-.play-game-component-container > div:nth-child(2) > button > img[src]{
+.play-game-component-container > div:nth-child(2) > button > img[src]{ /* Game Card Images */
     width: 100%;
     height: 100%;
 }
@@ -95,17 +139,211 @@ body{
     font-size: 30px;
     letter-spacing: 4px;
     text-align: center;
+    font-family: comic-story, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #111827;
+}
+
+/* result-win-component-container - The result win container. */
+.result-win-component-container{
+    Display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    border: 1px solid lightblue;
+    width: 800px;
+    margin: 300px auto;
+    font-size: 30px;
+    letter-spacing: 4px;
+    text-align: center;
+    font-family: comic-story, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #111827;
+}
+.result-win-component-container > p{
+    margin: 0;
+}
+.result-win-component-container > button{
+    font-size: 18px;
+    padding: 10px 5px 10px 5px;
+    font-family: comic-story, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #111827;
+    letter-spacing: 3px;
+    border: 1px solid#f59f0b94;
+    border-radius: 10px;
+    background-color: #f59f0b94;
+}
+.result-win-component-container > button:hover{
+    cursor: pointer;
+    border: 1px solid #f59e0b;
+    background-color: #f59e0b;
+}
+.result-win-component-container > button:focus{
+    border: 1px solid #f59e0b;
+    background-color: #f59e0b;
+}
+
+/*****************************************************************************************************************************************************************************/
+/*****************************************************************************************************************************************************************************/
+/* |How To Play Section| */
+/* how-to-play-component-container - The how to play screen. */
+.how-to-play-component-container{
+    display: grid;
+    grid-template-columns: 2fr 100px;
+    grid-template-rows: 50px auto;
+    gap: 4px;
+
+    position: absolute;
+    bottom: 250px;
+    left: 700px;
+    z-index: 1;
+
+    border: 2px solid #ff9966;
+    border-radius: 10px;
+    width: 500px;
+    height: 400px;
+    padding: 10px;
+    background: linear-gradient(to right, #ff996686, #ff5e62);
+    background: -webkit-linear-gradient(to right, #ff9966, #ff5e62);
+    box-shadow: 3px 3px 9px 3px black;
+    font-family: comic-story, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.how-to-play-component-container > div{ /* All items in the "how to play" window = (message title|close button|message area) */
+    border: 1px solid #c2400c77;
+    border-radius: 10px;
+}
+
+.how-to-play-component-container > div:nth-child(1){ /* message title (?) */
+    display: flex;
+    align-items: center;
+
+    font-size: 3em;
+    color: #7c2d12;
+}
+
+.how-to-play-component-container > div:nth-child(2){ /* close button (x) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.how-to-play-component-container > div:nth-child(3){ /* Message Area (...) */
+    grid-column: 1 / 3;
+    color: #7c2d12;
+    padding: 3px;
+}
+
+/*****************************************************************************************************************************************************************************/
+/*****************************************************************************************************************************************************************************/
+/* |Close Button Section| */
+/* close-button-component-container - The close button component container. */
+.close-button-component-container{
+    width: 50px;
+    height: 45px;
+    background-color: inherit;
+    border: none;
+}
+.close-button-component-container > svg{
+    width: 100%;
+    height: 100%;
+    fill: #7c2d12;
+}
+.close-button-component-container:hover{
+    cursor: pointer;
+}
+.close-button-component-container > svg:hover{
+    fill: #b91c1c;
+}
+
+/*****************************************************************************************************************************************************************************/
+/*****************************************************************************************************************************************************************************/
+/* |Main Title Section| */
+/* main-title-component-contaienr - The main title for the entire application. */
+.main-title-component-container{
+    position: absolute;
+    top: 5px;
+    left: 500px;
+    font-family: comic-story, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 50px;
+    letter-spacing: 3px;
+    color: #111827;
 }
 
 
 /*****************************************************************************************************************************************************************************/
 /*****************************************************************************************************************************************************************************/
-/* |Hide Screen Section| */
-/* hide-screen - Hide screen class. */
-.hide-screen{
-    display: none;
-}
+/* |Media Section| */
+/* Application Responsiveness - For mobile and tablet devices. */
 
-#hide-screen-now{
-    display: none;
+/* Media 0 - For moile and tablet devices.  */
+@media only screen and (max-width: 1000px){
+    body{
+        background: linear-gradient(to left, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+        background-repeat: no-repeat;
+    }
+
+    .main-title-component-container{
+        color: red;
+        font-size: 20px;
+        text-align: center;
+        /* position: initial; */
+        top: 30px;
+        left: 10px;
+    }
+
+    /* |Main Menu Section| */
+    .main-menu-component-container{
+        width: 100%;
+        height: 300px;
+        margin: 100px auto;
+    }
+    #display-background-image{
+        background-size: 100%;
+        padding: 0px;
+    }
+    .main-menu-component-container > div{ /* Menu Item Container */
+        /* width: 100%; */
+        margin-top: 100px;
+        gap: 20px;
+    }
+
+    /* |How To Play Section| */
+    .how-to-play-component-container{
+        grid-template-columns: 1fr 50px;
+
+        position: absolute;
+        bottom: 250px;
+        left: 0;
+        width: fit-content;
+        height: 350px;
+        font-size: 12px;
+        padding: 10px; 
+        background: linear-gradient(to right, #ff9966, #E100FF);
+        background: -webkit-linear-gradient(to right, #ff9966, #E100FF);
+    }
+    
+    /* |Play Game Section| */
+    .play-game-component-container{
+        width: 100%;
+    }
+    .play-game-component-container > div:nth-child(1){ /* Score and Level*/
+        font-size: 15px;
+    }
+    .play-game-component-container > div:nth-child(2){
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        grid-template-rows: repeat(2, 1fr) !important;
+        padding: 50px;
+    }
+
+    /* |Result Win Section| */ 
+    .result-win-component-container{
+        width: 100%;
+    }
+
+    /* |Result Lose Section| */
+    .result-lose-component-container{
+        width: 100%;
+        font-size: 18px;
+    }
+
 }

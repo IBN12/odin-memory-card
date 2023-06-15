@@ -1,5 +1,3 @@
-import { cards } from "./cards";
-
 export const levels = (level) =>{
     let amountOfCardsInGame = 0;
 
@@ -22,8 +20,11 @@ export const levels = (level) =>{
         case 6:
             amountOfCardsInGame = 14;
             break;
+        case 7:
+            amountOfCardsInGame = 16;
+            break;
         default:
-            alert("Not a corrent level");
+            alert("Level doesn't exist");
     }
 
     return amountOfCardsInGame;

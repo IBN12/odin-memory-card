@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// Program: GameResult.js
-// Description: Will display the game result.
+// Program: GameResultLose.js
+// Description: Will display the losing result.
 // Notes: N/A
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 import { savePreviousScore } from "../utils/save";
@@ -28,7 +28,7 @@ export function ResultLose(props){
 
     return(
         <div className="result-lose-component-container">
-            <p>You Lose</p>
+            <p>You Lose!!</p>
             <p>Highest Score: {savePreviousScore.savedPreviousScore} </p>
             <MainMenu
                 setDisplayMainMenu={setDisplayMainMenu}
@@ -42,11 +42,3 @@ export function ResultLose(props){
     );
 }
 
-// ResultLost(): Will display that the player wins.
-export function ResultWin(){
-    return(
-        <div className="result-win-component-container">
-            You Win
-        </div>
-    );
-}

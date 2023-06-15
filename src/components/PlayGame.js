@@ -20,9 +20,10 @@ export function PlayGame(props){
     const [level, setLevel] = useState(1);
     const [score, setScore] = useState(0);
     const [row, setRow] = useState(0);
+    const [backgroundColor, setBackgroundColor] = useState("");
 
     let shuffleButtonClicked = false;
-    const { playGame, setPlayGame, gameResultLoss, setGameResultLoss, gameResultWin, setGameResultWin } = props; // Destructuring props
+    const { setPlayGame, gameResultLoss, setGameResultLoss, setGameResultWin } = props; // Destructuring props
 
     useEffect(() =>{
         saveCardDeck.savedCardDeck = shuffleCards(level, shuffleButtonClicked);
@@ -31,21 +32,31 @@ export function PlayGame(props){
         // Set the rows after each level when new cards are added. 
         if (level === 1){
             setRow(1);
+            setBackgroundColor("#fbbf24");
         }
         else if (level === 2){
             setRow(2);
+            setBackgroundColor("#fb923c");
         }
         else if (level === 3){
             setRow(2);
+            setBackgroundColor("#22d3ee");
         }
         else if (level === 4){
             setRow(3);
+            setBackgroundColor("#a3e635");
         }
         else if (level === 5){
             setRow(3);
+            setBackgroundColor("#4ade80");
         }
         else if (level === 6){
             setRow(4);
+            setBackgroundColor("#2dd4bf");
+        }
+        else if (level === 7){
+            setRow(4);
+            setBackgroundColor("#c084fc");
         }
     }, [level, shuffleButtonClicked]);
 
@@ -55,10 +66,10 @@ export function PlayGame(props){
 
         setInGameCards((shuffleCards(level, shuffleButtonClicked)));
 
-        changeLevel(e, inGameCards, level, setLevel, setPlayGame, setGameResultLoss);
+        changeLevel(e, inGameCards, level, setLevel, setPlayGame, setGameResultLoss, setGameResultWin);
         changeScore(score, setScore, gameResultLoss); 
 
-        new Audio(clickSound).play();
+        new Audio(clickSound).play(); // Click Sound
     }
 
     return(
@@ -75,16 +86,23 @@ export function PlayGame(props){
 
             <div style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(4, 200px)",
-                gridTemplateRows: `repeat(${row}, 200px)`,
+                gridTemplateColumns: "repeat(4, 240px)",
+                gridTemplateRows: `repeat(${row}, 240px)`,
                 justifyContent: "center",
-                gap: "10px",
+                gap: "30px",
             }}>
-                {inGameCards.map(obj => <button onClick={cardClicked} key={obj.id}>
+                {inGameCards.map(obj => <button style={{
+                    border: `1px solid ${backgroundColor}`,
+                    borderRadius: "10px",
+                    backgroundColor: `${backgroundColor}`,
+                }} 
+                    onClick={cardClicked} 
+                    key={obj.id}>
                     <img 
                         src={obj.image}
                         alt={obj.name}
                     />
+                    {obj.name}
                 </button>)}
             </div>
         </div>
